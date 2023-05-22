@@ -22,7 +22,45 @@ pub fn greet(name:&str) {
 }
 
 
+#[wasm_bindgen(js_name = getState)]
+pub fn get_state() -> String {
+    MINESWEEPER.with(|ms| ms.borrow().to_string())
+}
 
+#[wasm_bindgen(js_name = openField)]
+pub fn open_field(x:usize,y:usize) {
+    MINESWEEPER.with(|ms| {
+        ms.borrow_mut().open((x,y))
+    } );
+} 
+
+#[wasm_bindgen(js_name = toggleFlag)]
+pub fn toggle_flag(x:usize ,y:usize) {
+    MINESWEEPER.with(|ms| {
+        ms.borrow_mut().toggle_flag((x,y))
+    });
+}
+
+#[wasm_bindgen(js_name = checkWin)]
+pub fn check_win() -> bool {
+    MINESWEEPER.with(|ms| {
+        ms.borrow_mut().check_win()
+    })
+}
+
+#[wasm_bindgen(js_name = isGameOver)]
+pub fn is_game_over() -> bool {
+    MINESWEEPER.with(|ms| {
+        ms.borrow().is_game_over()
+    })
+}
+
+#[wasm_bindgen(js_name = createNewBoard)]
+pub fn create_new_board(width:usize,height:usize,mine_count:usize) {
+    MINESWEEPER.with(|ms| {
+        ms.replace(Minesweeper::new(width,height,mine_count));
+    })
+}
 
 
 
