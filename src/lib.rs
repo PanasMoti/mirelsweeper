@@ -5,6 +5,21 @@ mod minesweeper;
 
 use minesweeper::Minesweeper;
 
+use wasm_bindgen::prelude::*;
+use std::cell::RefCell;
+
+thread_local! {
+    static MINESWEEPER:RefCell<Minesweeper> = RefCell::new(Minesweeper::new(10,10,5));
+}
+#[wasm_bindgen]
+extern "C" {
+    fn alert(s:&str);
+}
+
+#[wasm_bindgen]
+pub fn greet(name:&str) {
+    alert(&format!("hello {}!",name));
+}
 
 
 
