@@ -19,8 +19,7 @@ pub struct Minesweeper {
     open_fields: HashSet<Position>,
     mines: HashSet<Position>,
     flagged_fields: HashSet<Position>,
-    pub lost: bool,
-
+    lost: bool,
 }
 
 
@@ -141,6 +140,9 @@ impl Minesweeper {
 
     pub fn check_win(&mut self) -> bool {
         self.flagged_fields == self.mines
+    }
+    pub fn is_game_over(&self) -> bool {
+        self.lost
     }
 
     

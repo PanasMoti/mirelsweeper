@@ -111,7 +111,7 @@ mod tests {
             if ms.check_win() {
                 println!("WON");
                 break;
-            } else if ms.lost {
+            } else if ms.is_game_over() {
                 println!("LOST");
                 break;
             }           
