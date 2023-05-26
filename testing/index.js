@@ -12,6 +12,12 @@ async function main() {
     globalThis.mirel.openField = openField;
     globalThis.mirel.toggleFlag = toggleFlag;
     globalThis.mirel.createNewBoard = createNewBoard;
+    render();
+}
+
+
+function render() {
+    console.log("hello world!");
 }
 //this will work
 main();
