@@ -1,0 +1,15 @@
+.board {
+    display: block;
+
+}
+
+.cell {
+    /* padding: 10px; */
+    /* justify-content: center; */
+    display: inline-flex;
+    flex: 1 1 auto;
+    padding: 1.2rem 1.2rem;
+    background-size: contain;
+
+}
+
